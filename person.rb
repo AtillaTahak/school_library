@@ -1,4 +1,7 @@
 class Person
+    attr_reader :id, :name, :age
+    attr_writer :name, :age
+    
     def initialize(name="Unknown",age,parent_permission="Unknown")
         @id=Ramdom.rand(1..1000)
         @name = name
@@ -14,6 +17,4 @@ class Person
     def can_use_services?
         @parent_permission == "allowed"
     end
-    attr_reader :id, :name, :age
-    attr_writer :name, :age
 end

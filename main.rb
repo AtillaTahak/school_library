@@ -1,5 +1,3 @@
-#!/usr/bin/env ruby
-
 # Imports
 require './book'
 require './student'

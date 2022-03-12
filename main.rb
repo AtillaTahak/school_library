@@ -44,7 +44,6 @@ def create_student
   end
   student = Student.new(age, name)
   student.parent_permission = permission
-  student.type = 'Student'
   add_person(student)
   success('Person')
 end
@@ -59,7 +58,6 @@ def create_teacher
   print 'Specialization: '
   specialization = gets.chomp
   teacher.specialization = specialization
-  teacher.type = 'Teacher'
   add_person(teacher)
   success('Person')
 end
@@ -77,7 +75,7 @@ end
 
 # Method to list all persons' record
 def list_all_people
-  @person_arr.map { |person| puts "[#{person.type}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}" }
+  @person_arr.map { |person| puts "Name: #{person.name}, ID: #{person.id}, Age: #{person.age}" }
   init
 end
 
@@ -115,7 +113,7 @@ def create_a_rental
   book_index = gets.chomp.to_i
   puts 'Select a person from the following list by number (not id)'
   @person_arr.each_with_index do |person, idx|
-    puts "#{idx}) [#{person.type}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+    puts "#{idx}) Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
   end
   person_index = gets.chomp.to_i
   print 'Date (yyyy/mm/dd): '

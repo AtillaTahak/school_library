@@ -3,6 +3,7 @@ require './book'
 require './student'
 require './teacher'
 require './rental'
+require 'pry'
 
 # Welcome note
 puts "---------------------------------\n
@@ -16,6 +17,7 @@ puts "---------------------------------\n
 # Method to add new book record
 def add_book(book)
   @book_arr.push(book)
+  binding.pry
   @book_arr
 end
 

@@ -1,14 +1,16 @@
-require_relative './corrector'
+require './corrector'
 
 class Person
   attr_accessor :name, :age
-  attr_reader :id
+  attr_reader :id, :rentals
 
-  def initialize(age, name: 'Unknown', parent_permission: true)
-    @id = Ramdom.rand(1..1000)
+  def initialize(age, name= 'Unknown', parent_permission: true)
+    @id = Random.rand(1..1000)
     @name = name
     @age = age
     @parent_permission = parent_permission
+    @rentals = []
+    @corrector = Corrector.new
   end
 
   def validate_name(name)
@@ -26,4 +28,9 @@ class Person
   end
 
   public :can_use_services?
+
+
+  def add_rental(book,date)
+    Rental.new(date, self, book)
+  end
 end

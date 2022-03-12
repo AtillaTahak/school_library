@@ -31,6 +31,6 @@ class Person
   public :can_use_services?
 
   def add_rental(book, date)
-    Rental.new(date, self, book)
+    Rental.new(date, book, self)
   end
 end
